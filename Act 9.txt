@@ -1,0 +1,63 @@
+student_grades = {
+    'john': 95,
+    'Sam': 94,
+    'Billy' : 92,
+    'Tommy' : 97,
+    'Mark' : 95
+}
+
+while True:
+    print("\nStudent Grades Menu")
+    print("1. View All Students and Grades")
+    print("2. Add a Student and Grade")
+    print("3. Update a Student's Grade")
+    print("4. Delete a Student")
+    print("5. Exit") 
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        if student_grades:
+            print("Current Students and Grades:")
+            for student, grade in student_grades.items():
+                print(f"{student}: {grade}")
+        else:
+            print("No students in the dictionary yet.")
+
+    elif choice == "2":
+        student_name = input("Enter student's name: ")
+        while True:
+            grade_input = input("Enter student's grade: ")
+            if grade_input.isdigit():  
+                grade = int(grade_input)
+                break
+            else:
+                print("Invalid grade. Please enter an integer.")
+        student_grades[student_name] = grade
+        print(f"Added {student_name} with grade {grade} to the dictionary.")
+
+    elif choice == "3":
+        student_name = input("Enter student's name to update: ")
+        if student_name in student_grades:
+            while True:
+                new_grade_input = input("Enter new grade: ")
+                if new_grade_input.isdigit(): 
+                    new_grade = int(new_grade_input)
+                    break
+                else:
+                    print("Invalid grade. Please enter an integer.")
+            student_grades[student_name] = new_grade
+            print(f"Updated {student_name}'s grade to {new_grade}.")
+        else:
+            print(f"{student_name} not found in the dictionary.")
+
+    elif choice == "4":
+        student_name = input("Enter student's name to delete: ")
+        if student_name in student_grades:
+            del student_grades[student_name]
+            print(f"{student_name} deleted from the dictionary.")
+        else:
+            print(f"{student_name} not found in the dictionary.")
+
+    elif choice == "5":
+        print("Exiting the program.")
+        break

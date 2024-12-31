@@ -1,0 +1,25 @@
+class BirthdayParty:
+    def __init__(self, theme, foods, special_dish):
+        self.theme = theme
+        self.foods = foods
+        self.special_dish = special_dish
+
+    def print_foods(self):
+        print(f"Theme: {self.theme}")
+        print("Foods available:")
+        for food in self.foods:
+            print(f"- {food}")
+        self.__print_secret_dish()
+
+    def __print_secret_dish(self):
+        print(f"The secret dish for the party is: {self.special_dish}")
+
+party1 = BirthdayParty("Superhero", ["Pinritong Pizza", "Ginataang Cupcakes", "Munggo Salad"], "Chocolate Cake")
+party2 = BirthdayParty("Princess", ["Pasta ", "White Cookies", "Sinigang Ice Cream"], "Strawberry Tart")
+party3 = BirthdayParty("Space", ["Tacos", "White Brownies", "Chipsilog"], "Galaxy Cake")
+
+party1.print_foods()
+print()   
+party2.print_foods()
+print() 
+party3.print_foods()
